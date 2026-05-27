@@ -23,7 +23,7 @@ This project demonstrates a complete **observability pipeline** for a containeri
 - Installation of the `kube-prometheus-stack` (Prometheus, Grafana, Alertmanager) using Helm.
 - Custom Grafana dashboards to visualize CPU and memory usage of the Flask app.
 
-All resources run **locally** – no cloud costs.
+## All resources run **locally** – no cloud costs.
 
 ## 🛠️ Technologies Used
 
