@@ -63,27 +63,27 @@ Windows 10/11 with Docker Desktop
 - Docker Desktop
 
 ### Step‑by‑Step (USE POWERSHELL)
-1. Start Minikube
+## 1. Start Minikube
 ```
 minikube start --driver=docker
 ```
-2. Build the Docker image inside Minikube
+## 2. Build the Docker image inside Minikube
 ```
 eval $(minikube docker-env)
 docker build -t flask-k8s-app:v1 .
 ```
-3. Deploy the app (Download the file on the Repo attach)
+## 3. Deploy the app (Download the file on the Repo attach)
 ```
 - kubectl apply -f k8s/deployment.yaml.txt
 - kubectl apply -f k8s/service.yaml.txt
 ```
-4. Install the monitoring stack
+## 4. Install the monitoring stack
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
 ```
-5. Access Grafana
+## 5. Access Grafana
 ```
 kubectl port-forward --namespace monitoring service/prometheus-grafana 3000:80
 ```
@@ -95,8 +95,13 @@ kubectl port-forward --namespace monitoring service/prometheus-grafana 3000:80
 ```
 kubectl get secret -n monitoring prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
 ```
-6. Create custom dashboards
-- See Grafana Dashboard Creation section in this README.
+## 6. Create custom dashboards
+See Grafana Dashboard Creation section in this README:
+- -<a href="https://github.com/Donovandonz/Kubernetes-Observability---Monitoring/blob/main/Kubernetes-Compute%20Resources-Cluster.png">Kubernetes-Compute Resources-Cluster</a>
+- -<a href="https://github.com/Donovandonz/Kubernetes-Observability---Monitoring/blob/main/CPU-usage-over-time.png">CPU-usage-over-time</a>
+- -<a href="https://github.com/Donovandonz/Kubernetes-Observability---Monitoring/blob/main/My-Flask-App-Monitoring.png">My-Flask-App-Monitoring</a>
+- -<a href="https://github.com/Donovandonz/Kubernetes-Observability---Monitoring/blob/main/Prometheus-Overview.png">Prometheus-Overview</a>
+- -<a href="https://github.com/Donovandonz/Kubernetes-Observability---Monitoring/blob/main/flask-app-with-image.png">Flask-app-with-image</a>
 
 ---
 
